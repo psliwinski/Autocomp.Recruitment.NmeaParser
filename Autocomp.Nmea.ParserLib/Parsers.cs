@@ -50,4 +50,38 @@ namespace Autocomp.Nmea.ParserLib
         }
 
     }
+
+    public static class MWVParser
+    {
+        public static string ParseWindAngle(NmeaMessage message)
+        {
+            string windAngle = message.Fields[0];
+            return windAngle;
+
+        }
+
+        public static string ParseReference(NmeaMessage message)
+        {
+            string reference = message.Fields[1];
+            return reference;
+        }
+
+        public static string ParseWindSpeed(NmeaMessage message)
+        {
+            string windSpeed = message.Fields[2];
+            return windSpeed;
+        }
+
+        public static string ParseWindSpeedUnits(NmeaMessage message)
+        {
+            string windSpeedUnits = message.Fields[3];
+            return windSpeedUnits;
+        }
+
+        public static string ParseStatus(NmeaMessage message)
+        {
+            string status = message.Fields[4];
+            return status;
+        }
+    }
 }
