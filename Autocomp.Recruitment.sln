@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autocomp.Nmea.Common", "Autocomp.Nmea.Common\Autocomp.Nmea.Common.csproj", "{9DE3D7D7-B5D4-43C2-8C1B-D92B2BC5C46C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autocomp.Nmea.Parser", "Autocomp.Nmea.Parser\Autocomp.Nmea.Parser.csproj", "{FB7534AB-0555-4500-A6A0-407E2BDE699E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autocomp.Nmea.ParserLib", "Autocomp.Nmea.ParserLib\Autocomp.Nmea.ParserLib.csproj", "{61FBF05A-A7F8-4993-A303-046BC75D5DC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{9DE3D7D7-B5D4-43C2-8C1B-D92B2BC5C46C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DE3D7D7-B5D4-43C2-8C1B-D92B2BC5C46C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DE3D7D7-B5D4-43C2-8C1B-D92B2BC5C46C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB7534AB-0555-4500-A6A0-407E2BDE699E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB7534AB-0555-4500-A6A0-407E2BDE699E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB7534AB-0555-4500-A6A0-407E2BDE699E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB7534AB-0555-4500-A6A0-407E2BDE699E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61FBF05A-A7F8-4993-A303-046BC75D5DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FBF05A-A7F8-4993-A303-046BC75D5DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FBF05A-A7F8-4993-A303-046BC75D5DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FBF05A-A7F8-4993-A303-046BC75D5DC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

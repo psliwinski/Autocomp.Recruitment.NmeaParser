@@ -5,9 +5,9 @@ namespace Autocomp.Nmea.Common
 {
     public class NmeaMessage
     {
-        public string Header { get; }
+        public string Header { get; set; }
 
-        public string[] Fields { get; }
+        public string[] Fields { get; set; }
 
         public NmeaFormat Format { get; set; } = NmeaFormat.Default;
 
