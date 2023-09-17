@@ -133,7 +133,7 @@ namespace Autocomp.Nmea.ParserLib
                 string degreesStr = message.Fields[0].Substring(0, 2);
                 string minutesStr = message.Fields[0].Substring(2);
 
-                if (double.TryParse(degreesStr, out double degrees) && double.TryParse(minutesStr, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out double minutes))
+                if (double.TryParse(degreesStr, out double degrees) && double.TryParse(minutesStr, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out double minutes)) 
                 {
                     double latitude = degrees + (minutes / 60.0);
 
@@ -145,13 +145,13 @@ namespace Autocomp.Nmea.ParserLib
                     {
                         throw new ArgumentException("Latitude is out of range.");
                     }
-
+                        
                 }
                 else
                 {
                     throw new FormatException("Latitude is not a valid double.");
                 }
-
+                
 
             }
             throw new FormatException("GLL sentence does not contain latitude.");
@@ -163,7 +163,7 @@ namespace Autocomp.Nmea.ParserLib
             {
                 string nsIndicator = message.Fields[1];
 
-                if (nsIndicator == "N" || nsIndicator == "S")
+                if (nsIndicator == "N" || nsIndicator == "S") 
                 {
                     return nsIndicator;
                 }
@@ -186,7 +186,7 @@ namespace Autocomp.Nmea.ParserLib
                 {
                     double longitude = degrees + (minutes / 60.0);
 
-                    if (longitude >= -180 && longitude <= 180)
+                    if (longitude >= -180 && longitude <= 180) 
                     {
                         return longitude;
                     }
@@ -209,7 +209,7 @@ namespace Autocomp.Nmea.ParserLib
             {
                 string ewIndicator = message.Fields[3];
 
-                if (ewIndicator == "E" || ewIndicator == "W")
+                if (ewIndicator == "E" || ewIndicator == "W") 
                 {
                     return ewIndicator;
                 }
@@ -225,9 +225,9 @@ namespace Autocomp.Nmea.ParserLib
         {
             if (message.Fields != null && message.Fields.Length >= 5)
             {
-                string utcTimeStr = message.Fields[4];
+                string utcTimeStr = message.Fields[4]; 
 
-                if (utcTimeStr.Length == 9)
+                if (utcTimeStr.Length == 9) 
                 {
                     try
                     {
@@ -250,7 +250,7 @@ namespace Autocomp.Nmea.ParserLib
             {
                 string status = message.Fields[5];
 
-                if (status == "A" || status == "V")
+                if (status == "A" || status == "V") 
                 {
                     return status;
                 }
@@ -268,7 +268,7 @@ namespace Autocomp.Nmea.ParserLib
             {
                 string modeIndicator = message.Fields[6];
 
-                if (modeIndicator == "A" || modeIndicator == "D" || modeIndicator == "E" || modeIndicator == "N" || modeIndicator == "S")
+                if (modeIndicator == "A" || modeIndicator == "D" || modeIndicator == "E" || modeIndicator == "N" || modeIndicator == "S") 
                 {
                     return modeIndicator;
                 }
@@ -289,7 +289,7 @@ namespace Autocomp.Nmea.ParserLib
             {
                 if (double.TryParse(message.Fields[0], out double windAngle))
                 {
-                    if (windAngle >= 0 && windAngle < 360)
+                    if (windAngle >= 0 && windAngle < 360) 
                     {
                         return windAngle;
                     }
@@ -312,7 +312,7 @@ namespace Autocomp.Nmea.ParserLib
             {
                 string reference = message.Fields[1];
 
-                if (reference == "R" || reference == "T")
+                if (reference == "R" || reference == "T") 
                 {
                     return reference;
                 }
@@ -330,7 +330,7 @@ namespace Autocomp.Nmea.ParserLib
             {
                 if (double.TryParse(message.Fields[2], out double windSpeed))
                 {
-                    if (windSpeed >= 0 && windSpeed <= 100.0)
+                    if (windSpeed >= 0 && windSpeed <= 100.0) 
                     {
                         return windSpeed;
                     }
@@ -353,7 +353,7 @@ namespace Autocomp.Nmea.ParserLib
             {
                 string windSpeedUnits = message.Fields[3];
 
-                if (windSpeedUnits == "K" || windSpeedUnits == "M" || windSpeedUnits == "N" || windSpeedUnits == "S")
+                if (windSpeedUnits == "K" || windSpeedUnits == "M" || windSpeedUnits == "N" || windSpeedUnits == "S") 
                 {
                     return windSpeedUnits;
                 }
@@ -371,7 +371,7 @@ namespace Autocomp.Nmea.ParserLib
             {
                 string status = message.Fields[4];
 
-                if (status == "A" || status == "V")
+                if (status == "A" || status == "V") 
                 {
                     return status;
                 }

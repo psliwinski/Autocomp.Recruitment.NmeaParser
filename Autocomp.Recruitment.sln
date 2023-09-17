@@ -9,6 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autocomp.Nmea.Parser", "Aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autocomp.Nmea.ParserLib", "Autocomp.Nmea.ParserLib\Autocomp.Nmea.ParserLib.csproj", "{61FBF05A-A7F8-4993-A303-046BC75D5DC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestsForParser", "UnitTestsForParser\UnitTestsForParser.csproj", "{19EEADD2-8F7A-490E-ABEC-0A3C20EA5564}"
+	ProjectSection(ProjectDependencies) = postProject
+		{61FBF05A-A7F8-4993-A303-046BC75D5DC6} = {61FBF05A-A7F8-4993-A303-046BC75D5DC6}
+		{9DE3D7D7-B5D4-43C2-8C1B-D92B2BC5C46C} = {9DE3D7D7-B5D4-43C2-8C1B-D92B2BC5C46C}
+		{FB7534AB-0555-4500-A6A0-407E2BDE699E} = {FB7534AB-0555-4500-A6A0-407E2BDE699E}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +34,10 @@ Global
 		{61FBF05A-A7F8-4993-A303-046BC75D5DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61FBF05A-A7F8-4993-A303-046BC75D5DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61FBF05A-A7F8-4993-A303-046BC75D5DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19EEADD2-8F7A-490E-ABEC-0A3C20EA5564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19EEADD2-8F7A-490E-ABEC-0A3C20EA5564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19EEADD2-8F7A-490E-ABEC-0A3C20EA5564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19EEADD2-8F7A-490E-ABEC-0A3C20EA5564}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
