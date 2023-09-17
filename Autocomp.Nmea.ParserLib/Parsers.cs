@@ -4,6 +4,126 @@ using System.Globalization;
 
 namespace Autocomp.Nmea.ParserLib
 {
+    public class NmeaParser
+    {
+        public static NmeaMessage Parse(string sentence, char separator)
+        {
+            if (string.IsNullOrEmpty(sentence))
+            {
+                throw new ArgumentException("NMEA sentence is null or empty.");
+            }
+
+            try
+            {
+                NmeaMessage nmeaMessage = NmeaMessage.FromString(sentence, NmeaFormat.Default);
+
+                nmeaMessage.Checksum = ParseChecksum(sentence);
+
+                ValidateChecksum(sentence, nmeaMessage.Checksum);
+
+                return nmeaMessage;
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException(ex.Message);
+            }
+        }
+
+        public static double ParseGLLLatitude(NmeaMessage message)
+        {
+            ValidateNmeaMessage(message);
+
+            try
+            {
+                return GLLParser.ParseLatitude(message);
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException(ex.Message);
+            }
+        }
+
+        public static double ParseGLLLongitude(NmeaMessage message)
+        {
+            ValidateNmeaMessage(message);
+
+            try
+            {
+                return GLLParser.ParseLongitude(message);
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException(ex.Message);
+            }
+        }
+
+        public static DateTime ParseGLLUTCTime(NmeaMessage message)
+        {
+            ValidateNmeaMessage(message);
+
+            try
+            {
+                return GLLParser.ParseUTCTime(message);
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException(ex.Message);
+            }
+        }
+
+        private static void ValidateNmeaMessage(NmeaMessage message)
+        {
+            if (message == null)
+            {
+                throw new ArgumentNullException("NMEA message is null.");
+            }
+
+            if (string.IsNullOrEmpty(message.Header))
+            {
+                throw new FormatException("NMEA message header is missing or empty.");
+            }
+
+            if (message.Fields == null || message.Fields.Length == 0)
+            {
+                throw new FormatException("NMEA message fields are missing or empty.");
+            }
+        }
+
+        private static void ValidateChecksum(string sentence, string checksum)
+        {
+            if (!string.IsNullOrEmpty(checksum) && checksum.Length == 2)
+            {
+                string sentenceWithoutChecksum = sentence.Substring(1, sentence.IndexOf('*') - 1);
+                byte[] sentenceBytes = System.Text.Encoding.ASCII.GetBytes(sentenceWithoutChecksum);
+                byte expectedChecksum = 0;
+                for (int i = 0; i < sentenceBytes.Length; i++)
+                {
+                    expectedChecksum ^= sentenceBytes[i];
+                }
+                byte actualChecksum = Convert.ToByte(checksum, 16);
+
+                if (expectedChecksum != actualChecksum)
+                {
+                    throw new FormatException("Checksum validation failed.");
+                }
+            }
+            else
+            {
+                throw new FormatException("Invalid checksum format.");
+            }
+        }
+
+        private static string ParseChecksum(string sentence)
+        {
+            int checksumStartIndex = sentence.IndexOf('*');
+            if (checksumStartIndex != -1 && sentence.Length >= checksumStartIndex + 3)
+            {
+                return sentence.Substring(checksumStartIndex + 1, 2);
+            }
+            return string.Empty;
+        }
+    }
+
     public static class GLLParser
     {
         public static double ParseLatitude(NmeaMessage message)

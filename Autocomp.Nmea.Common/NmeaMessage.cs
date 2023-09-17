@@ -12,6 +12,7 @@ namespace Autocomp.Nmea.Common
         public NmeaFormat Format { get; set; } = NmeaFormat.Default;
 
         private static StringBuilder text = new StringBuilder();
+        public string Checksum { get; set; }
 
         public NmeaMessage(string header, string[] fields)
             : this(header, fields, NmeaFormat.Default)
