@@ -11,5 +11,21 @@
 
 
 
-    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+            <TextBlock Text="NMEA Sentence:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox x:Name="NmeaSentenceTextBox" Width="315" VerticalAlignment="Center"/>
+            <Button Content="Parse" Click="ParseButton_Click" VerticalAlignment="Center" Width="50" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <ListView Grid.Row="1" x:Name="ParsedValuesListView" Margin="10 0 10 10">
+        </ListView>
+
+        <TextBlock Grid.Row="2" x:Name="ErrorTextBlock" Margin="10" Foreground="Red"/>
+    </Grid>
 </Window>
